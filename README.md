@@ -10,6 +10,8 @@
 
 [Quick Start](#-quick-start) · [Documentation](https://docs.vyprojects.org/) · [Discord](https://discord.gg/k9SSkK7wPQ)
 
+Give us a ⭐ star to support us!
+
 ---
 
 ## 📖 Table of Contents
@@ -36,6 +38,15 @@
 
 ---
 
+## 🖼️ Screenshots
+
+*User Interface supports Light, Dark and Custom themes.*  
+<img width="3799" height="1849" alt="Screenshot 1" src="https://github.com/user-attachments/assets/898081db-678f-4645-909d-f147baed23e7" />
+<img width="3790" height="624" alt="Screenshot 2" src="https://github.com/user-attachments/assets/2bf95cc6-4ca8-4694-9822-d97bb90db1b8" />
+<img width="3799" height="1335" alt="Screenshot 3" src="https://github.com/user-attachments/assets/74ccf55e-2839-492f-ad0e-4e9db2df5774" />
+
+---
+
 ## 🚀 About VyManager
 
 VyManager is an open‑source, enterprise‑grade control plane for **VyOS** routers. It provides a modern web interface to manage **multiple instances** across different sites, with role‑based access control, live dashboards, and configuration deployment – all from a single pane of glass.
@@ -44,15 +55,6 @@ VyManager is an open‑source, enterprise‑grade control plane for **VyOS** rou
 - **Version‑aware** – supports VyOS 1.4, 1.5, and rolling releases.
 - **Secure** – API‑key authentication, encrypted SSH credentials, and fine‑grained permissions.
 - **Extensible** – built with Next.js, FastAPI, and PostgreSQL.
-
----
-
-## 🖼️ Screenshots
-
-*User Interface supports Light, Dark and Custom themes.*  
-<img width="3799" height="1849" alt="Screenshot 1" src="https://github.com/user-attachments/assets/898081db-678f-4645-909d-f147baed23e7" />
-<img width="3790" height="624" alt="Screenshot 2" src="https://github.com/user-attachments/assets/2bf95cc6-4ca8-4694-9822-d97bb90db1b8" />
-<img width="3799" height="1335" alt="Screenshot 3" src="https://github.com/user-attachments/assets/74ccf55e-2839-492f-ad0e-4e9db2df5774" />
 
 ---
 
