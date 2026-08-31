@@ -10,7 +10,7 @@
 
 [Quick Start](#-quick-start) · [Documentation](https://docs.vyprojects.org/) · [Discord](https://discord.gg/k9SSkK7wPQ)
 
-Give us a ⭐ star to support us!
+Give us a ⭐ star to support us❤️
 
 ---
 
