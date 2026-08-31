@@ -30,6 +30,7 @@ Give us a ⭐ star to support us❤️
 - [Tech Stack](#-tech-stack)
 - [Development / Manual Setup](#-development--manual-setup)
 - [Security Considerations](#-security-considerations)
+- [AI Integration with VyMCP](#-ai-integration-with-vymcp)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -560,6 +561,21 @@ VyManager uses this key to encrypt the generated SSH private key before storing 
 
 ---
 
+## 🤖 AI Integration with VyMCP
+
+> **Want to let AI agents manage your VyOS routers?**  
+> Check out **[VyMCP](https://github.com/Community-VyProjects/VyMCP)** – an MCP server that wraps the VyManager API, giving Claude, IDEs, and automation tools safe, audited access to your routers.
+
+VyMCP inherits VyManager's **per‑user authentication, RBAC, audit logging, and commit‑confirm safety** – so every action is attributed, scoped, and reversible.
+
+- **Read‑only by default** – write tools are opt‑in via `VYMANAGER_ENABLE_WRITES=true`
+- **Propose → apply** flow – changes are reviewed before execution
+- **Token‑scoped** – restrict to specific sites or instances
+
+[![VyMCP GitHub](https://img.shields.io/badge/GitHub-VyMCP-181717?style=flat-square&logo=github)](https://github.com/Community-VyProjects/VyMCP)
+
+---
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [CONTRIBUTING.md](https://github.com/Community-VyProjects/VyManager/blob/main/CONTRIBUTING.md) for guidelines.
@@ -583,21 +599,6 @@ See [LICENSE.md](https://github.com/Community-VyProjects/VyManager/blob/main/LIC
 - **Documentation**: [https://docs.vyprojects.org/](https://docs.vyprojects.org/)
 - **Issues**: [GitHub Issues](https://github.com/Community-VyProjects/VyManager/issues)
 - **Discord**: [Join our community](https://discord.gg/k9SSkK7wPQ)
-
----
-
-## 🤖 VyMCP – AI‑Powered Management
-
-> **Want to let AI agents manage your VyOS routers?**  
-> Check out **[VyMCP](https://github.com/Community-VyProjects/VyMCP)** – an MCP server that wraps the VyManager API, giving Claude, IDEs, and automation tools safe, audited access to your routers.
-
-VyMCP inherits VyManager's **per‑user authentication, RBAC, audit logging, and commit‑confirm safety** – so every action is attributed, scoped, and reversible.
-
-- **Read‑only by default** – write tools are opt‑in via `VYMANAGER_ENABLE_WRITES=true`
-- **Propose → apply** flow – changes are reviewed before execution
-- **Token‑scoped** – restrict to specific sites or instances
-
-[![VyMCP GitHub](https://img.shields.io/badge/GitHub-VyMCP-181717?style=flat-square&logo=github)](https://github.com/Community-VyProjects/VyMCP)
 
 ---
 
