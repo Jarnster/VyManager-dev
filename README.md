@@ -1,6 +1,3 @@
-Here's the fully polished README with all missing sections restored, enhanced with callout boxes, a clear documentation link, and a clean structure. I've kept the screenshots placeholder and integrated the install script reference.
-
----
 
 # VyManager
 
