@@ -1,3 +1,7 @@
+Here's the fully polished README with all missing sections restored, enhanced with callout boxes, a clear documentation link, and a clean structure. I've kept the screenshots placeholder and integrated the install script reference.
+
+---
+
 # VyManager
 
 > **Multi-tenant network management platform** to configure, deploy, and monitor VyOS instances across multiple sites.
@@ -23,7 +27,10 @@
 - [Configuration](#-configuration)
 - [Post‑Installation Setup Wizard](#-postinstallation-setup-wizard)
 - [Managing Your Deployment](#-managing-your-deployment)
-- [Architecture](#-architecture)
+- [Managing Multiple VyOS Instances](#-managing-multiple-vyos-instances)
+- [Version‑Aware Architecture](#-versionaware-architecture)
+- [Tech Stack](#-tech-stack)
+- [Development Setup](#-development-setup)
 - [Security Considerations](#-security-considerations)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
@@ -44,9 +51,11 @@ VyManager is an open‑source, enterprise‑grade control plane for **VyOS** rou
 ---
 
 ## 🖼️ Screenshots
-*User Interface supports Light, Dark and Custom themes*
 
-
+*User Interface supports Light, Dark and Custom themes.*  
+<img width="3799" height="1849" alt="Screenshot 1" src="https://github.com/user-attachments/assets/898081db-678f-4645-909d-f147baed23e7" />
+<img width="3790" height="624" alt="Screenshot 2" src="https://github.com/user-attachments/assets/2bf95cc6-4ca8-4694-9822-d97bb90db1b8" />
+<img width="3799" height="1335" alt="Screenshot 3" src="https://github.com/user-attachments/assets/74ccf55e-2839-492f-ad0e-4e9db2df5774" />
 
 ---
 
@@ -67,6 +76,7 @@ The fastest way to get VyManager running is with our **automated install script*
 
 - **Documentation**: [https://docs.vyprojects.org/](https://docs.vyprojects.org/)
 - **Community**: [Discord](https://discord.gg/k9SSkK7wPQ)
+- **Live Demo**: [https://vyprojects.org/](https://vyprojects.org/)
 
 ---
 
@@ -316,15 +326,154 @@ docker compose down -v
 
 ---
 
-## 🏗️ Architecture
+## 🗂️ Managing Multiple VyOS Instances
 
-VyManager is built as a three‑tier application:
+### Adding More Sites
 
-- **Frontend** – Next.js 16 (App Router) with Tailwind CSS and shadcn/ui.
-- **Backend** – FastAPI (Python 3.11+) that talks to VyOS via REST/GraphQL.
-- **Database** – PostgreSQL 16 stores users, sites, instances, and permissions.
+1. Navigate to **Site Manager** (click VyOS logo in sidebar)
+2. Click **"Add Site"** button
+3. Enter site name and description
+4. Click **"Create Site"**
 
-The backend uses a **version‑aware** layer that translates high‑level operations into version‑specific VyOS commands, ensuring compatibility with 1.4, 1.5, and rolling releases.
+### Adding Instances to a Site
+
+1. In **Site Manager**, select a site from the list
+2. Click **"Add Instance"** button
+3. Fill in instance details:
+   - **Name**: Friendly name for this router
+   - **Description**: Optional notes
+   - **Host**: IP address or hostname
+   - **Port**: HTTPS port (default 443)
+   - **API Key**: The key from VyOS configuration
+   - **Version**: Select 1.4 or 1.5
+   - **Protocol**: HTTPS (recommended) or HTTP
+4. Click **"Complete Setup"**
+
+### Connecting to an Instance
+
+1. Navigate to **Site Manager**
+2. Select a site
+3. Click **"Connect"** on any instance card
+4. VyManager will test the connection, verify API credentials, and redirect you to the dashboard
+5. You can now manage that VyOS router!
+
+### Switching Between Instances
+
+- Click **"Disconnect Instance"** in the sidebar
+- You'll return to **Site Manager**
+- Connect to a different instance
+
+---
+
+## 🧩 Version‑Aware Architecture
+
+VyManager supports multiple VyOS versions (1.4, 1.5+) using a version‑aware backend architecture.
+
+### How It Works
+
+The backend uses a three‑layer architecture:
+
+```
+Routers (API Endpoints)
+    ↓
+Builders (Batch Operations)
+    ↓
+Mappers (Version‑Specific Commands)
+    ↓
+VyOS Device (1.4 or 1.5)
+```
+
+Every feature exposes a `/capabilities` endpoint that tells the frontend which features are available for the connected VyOS version. The frontend conditionally shows/hides features based on these capabilities.
+
+> [!NOTE]  
+> This design ensures that VyManager remains compatible with future VyOS releases without requiring major rewrites.
+
+---
+
+## 🧰 Tech Stack
+
+### Frontend
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **Authentication**: Better‑auth
+- **State Management**: Zustand
+- **Database ORM**: Prisma
+
+### Backend
+- **Framework**: FastAPI
+- **Language**: Python 3.11+
+- **VyOS SDK**: pyvyos (custom)
+- **Database**: PostgreSQL
+- **DB Driver**: asyncpg
+
+### Infrastructure
+- **Container**: Docker & Docker Compose
+- **Database**: PostgreSQL 16
+- **Container Registry**: GitHub Container Registry (ghcr.io)
+
+---
+
+## 👨‍💻 Development Setup
+
+If you want to contribute or run VyManager from source, follow the instructions below.
+
+### Frontend Development
+
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run dev server (with hot reload)
+npm run dev
+
+# Type check
+npm run type-check
+
+# Lint
+npm run lint
+
+# Build for production
+npm run build
+```
+
+### Backend Development
+
+```bash
+cd backend
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run with auto-reload
+uvicorn app:app --reload --host 0.0.0.0 --port 8000 --proxy-headers
+
+# View API docs
+# Navigate to http://localhost:8000/docs
+```
+
+### Database Migrations
+
+```bash
+cd frontend
+
+# Generate migration after schema changes
+npx prisma migrate dev --name migration_name
+
+# Apply migrations
+npx prisma migrate deploy
+
+# View database
+npx prisma studio
+```
 
 ---
 
