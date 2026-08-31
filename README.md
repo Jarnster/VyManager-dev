@@ -28,7 +28,7 @@ Give us a ⭐ star to support us❤️
 - [Managing Multiple VyOS Instances](#-managing-multiple-vyos-instances)
 - [Version‑Aware Architecture](#-versionaware-architecture)
 - [Tech Stack](#-tech-stack)
-- [Development Setup](#-development-setup)
+- [Development / Manual Setup](#-development--manual-setup)
 - [Security Considerations](#-security-considerations)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
@@ -413,7 +413,7 @@ Every feature exposes a `/capabilities` endpoint that tells the frontend which f
 
 ---
 
-## 👨‍💻 Development Setup
+## 👨‍💻 Development / Manual Setup
 
 If you want to contribute or run VyManager from source, follow the instructions below.
 
