@@ -1,4 +1,3 @@
-
 # VyManager
 
 > **Multi-tenant network management platform** to configure, deploy, and monitor VyOS instances across multiple sites.
@@ -75,7 +74,6 @@ The fastest way to get VyManager running is with our **automated install script*
 
 - **Documentation**: [https://docs.vyprojects.org/](https://docs.vyprojects.org/)
 - **Community**: [Discord](https://discord.gg/k9SSkK7wPQ)
-- **Live Demo**: [https://vyprojects.org/](https://vyprojects.org/)
 
 ---
 
@@ -514,6 +512,51 @@ Ensure the `DATABASE_URL` in `.env` uses `postgres` as the hostname (the Docker 
 
 > [!NOTE]  
 > The install script will detect this and warn you accordingly.
+
+### VyOS API Timeouts with Large Configurations
+
+> [!NOTE]  
+> VyOS has known performance issues with large configurations, causing commits and boot times to take longer. See [VyOS T5388](https://vyos.dev/T5388).
+
+When making changes (e.g., reordering NAT rules) and the commit via the API takes longer than the default timeout, the operation may appear to fail or the UI may refresh before the commit completes.
+
+**Solution:**
+- Increase the **API timeout** in VyManager to a higher value (maximum 300 seconds). You can set this in the instance settings or via the `VYOS_API_TIMEOUT` environment variable (if supported).
+- Verify that the commit actually applied by manually reloading the configuration or checking the logs.
+
+> [!TIP]  
+> If you notice the UI refreshing too quickly, try increasing the timeout further and avoid performing large operations simultaneously.
+
+### SSH Key Generation Fails
+
+If you see **"Failed to generate SSH key"** when setting up SSH for real-time monitoring, the `SSH_ENCRYPTION_KEY` is most likely missing from your `.env` file.
+
+**Cause:**  
+VyManager uses this key to encrypt the generated SSH private key before storing it in the database. Without it, generation cannot complete.
+
+**Solution:**
+1. Generate a strong hex key:
+   ```bash
+   openssl rand -hex 32
+   ```
+2. Add it to your `.env`:
+   ```env
+   SSH_ENCRYPTION_KEY=your-generated-hex-key
+   ```
+3. Restart the backend container:
+   ```bash
+   docker compose restart backend
+   ```
+4. Try generating the SSH key again via the VyManager UI.
+
+> [!IMPORTANT]  
+> Also verify that you have entered the correct SSH username and port (e.g., `imam` and port `7842`). The SSH service on VyOS must be running and the user must have sufficient privileges.
+
+> [!TIP]  
+> Check the backend logs for errors:
+> ```bash
+> docker compose logs backend | grep -i ssh
+> ```
 
 ---
 
