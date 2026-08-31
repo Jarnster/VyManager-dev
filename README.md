@@ -7,7 +7,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/Community-VyProjects/VyManager?style=flat-square)](https://github.com/Community-VyProjects/VyManager/stargazers)
 [![Docker Pulls](https://img.shields.io/docker/pulls/ghcr.io/community-vyprojects/vymanager-backend?style=flat-square)](https://github.com/Community-VyProjects/VyManager/pkgs/container/vymanager-backend)
 
-[Quick Start](#-quick-start) · [Documentation](https://docs.vyprojects.org/) · [Discord](https://discord.gg/k9SSkK7wPQ) · [Live Demo](https://vyprojects.org/)
+[Quick Start](#-quick-start) · [Documentation](https://docs.vyprojects.org/) · [Discord](https://discord.gg/k9SSkK7wPQ)
 
 ---
 
@@ -43,6 +43,13 @@ VyManager is an open‑source, enterprise‑grade control plane for **VyOS** rou
 
 ---
 
+## 🖼️ Screenshots
+*User Interface supports Light, Dark and Custom themes*
+
+
+
+---
+
 ## ✨ Features
 
 - **Centralised Management** – add, remove, and configure VyOS instances from one UI.
@@ -51,14 +58,6 @@ VyManager is an open‑source, enterprise‑grade control plane for **VyOS** rou
 - **Multi‑Version Support** – automatically adapts features based on the connected VyOS version.
 - **Docker‑First Deployment** – runs anywhere with Docker Compose.
 - **Light & Dark Themes** – choose what suits you.
-
----
-
-## 🖼️ Screenshots
-
-*You’ll find a rich set of UI screenshots in the [GitHub repository](https://github.com/Community-VyProjects/VyManager) – we’ll keep this space visual.*  
-
-*(The user will handle the final screenshot placement.)*
 
 ---
 
@@ -81,7 +80,7 @@ The fastest way to get VyManager running is with our **automated install script*
 Run the following command as **root** or a user with `sudo` privileges:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Community-VyProjects/VyManager/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Community-VyProjects/VyManager/beta/install.sh | bash
 ```
 
 The script will:
@@ -393,7 +392,6 @@ See [LICENSE.md](https://github.com/Community-VyProjects/VyManager/blob/main/LIC
 - **Documentation**: [https://docs.vyprojects.org/](https://docs.vyprojects.org/)
 - **Issues**: [GitHub Issues](https://github.com/Community-VyProjects/VyManager/issues)
 - **Discord**: [Join our community](https://discord.gg/k9SSkK7wPQ)
-- **Live Demo**: [https://vyprojects.org/](https://vyprojects.org/)
 
 ---
 
