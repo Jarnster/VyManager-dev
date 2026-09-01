@@ -15,9 +15,9 @@ Give us a ⭐ star to support us❤️
 
 ## 📖 Table of Contents
 
+- [Screenshots](#-screenshots)
 - [About VyManager](#-about-vymanager)
 - [Features](#-features)
-- [Screenshots](#-screenshots)
 - [Quick Start](#-quick-start)
 - [Prerequisites](#-prerequisites)
 - [Installation](#-installation)
